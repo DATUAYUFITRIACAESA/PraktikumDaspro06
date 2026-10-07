@@ -4,37 +4,35 @@ public class StudiKasus106 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int hargaPerCup = 18000;
-        int jumlahCup, uangBayar;
-        int totalHarga, diskon, totalBayar;
-        int kembalian, kurang;
+        int pricePerCup = 18000;
+        int totalCup, moneyPaid;
+        int totalPrice, discount, totalPayment;
+        int change, shortage;
 
         System.out.print("Masukkan jumlah cup : ");
-        jumlahCup = sc.nextInt();
+        totalCup = sc.nextInt();
         System.out.print("Masukkan uang bayar : ");
-        uangBayar = sc.nextInt();
+        moneyPaid = sc.nextInt();
 
-        totalHarga = jumlahCup * hargaPerCup;
-        diskon = 0;
+        totalPrice = totalCup * pricePerCup;
+        discount = 0;
 
-        if (totalHarga >= 100000) {
-            diskon = totalHarga * 10 / 100;
+        if (totalPrice >= 100000) {
+            discount = totalPrice * 10 / 100;
         }
 
-        totalBayar = totalHarga - diskon;
+        totalPayment = totalPrice - discount;
 
-        System.out.println("Total harga         : Rp " + totalHarga);
-        System.out.println("Diskon              : Rp " + diskon);
-        System.out.println("Total bayar         : Rp " + totalBayar);
+        System.out.println("Total harga         : Rp " + totalPrice);
+        System.out.println("Diskon              : Rp " + discount);
+        System.out.println("Total bayar         : Rp " + totalPayment);
 
-        if (uangBayar >= totalBayar) {
-            kembalian = uangBayar - totalBayar;
-            System.out.println("Kembalian           : Rp " + kembalian);
+        if (moneyPaid >= totalPayment) {
+            change = moneyPaid - totalPayment;
+            System.out.println("Kembalian           : Rp " + change);
         } else {
-            kurang = totalBayar - uangBayar;
-            System.out.println("Uang tidak cukup, kurang Rp " + kurang);
+            shortage = totalPayment - moneyPaid;
+            System.out.println("Uang tidak cukup, kurang Rp " + shortage);
         }
-
-        sc.close();
     }
 }

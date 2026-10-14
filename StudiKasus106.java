@@ -4,7 +4,7 @@ public class StudiKasus106 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int pricePerCup = 18000;
+        int pricePerCup = 20000;
         int totalCup, moneyPaid;
         int totalPrice, discount, totalPayment;
         int change, shortage;

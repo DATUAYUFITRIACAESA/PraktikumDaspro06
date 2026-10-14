@@ -71,7 +71,7 @@ public class StudiKasus106 {
 #### 2.1.2 Execution Results / Output Screenshot
 The following is the program output after execution:
 
-![Experiment 1 Output](hasilProgram1.png)
+![Experiment 1 Output](coffeShop.png)
 
 
 ---
@@ -111,18 +111,6 @@ public class LogicalOperatorWifi06 {
 The following is the program output after execution:
 
 ![Experiment 2 Output](hasilProgram2.png)
-
-#### 2.2.3 Answers to Questions / Reflection Questions
-* **Question 1:** Explain the function of the `||`, `&&`, and `!` operators in the condition above.
-  * **Answer:** In line 16, the `||` (OR) operator checks whether the user is either a student or a lecturer (evaluating to `true` if at least one role is valid); the `!` (NOT) operator inverts the value of `isBlocked` so that an unblocked account (`false`) becomes `true`; and the `&&` (AND) operator combines both checks, ensuring access is granted only if the user has a valid role and their account is not blocked.
-* **Question 2:** Why can a lecturer still get access when `isStudent = false`?
-  * **Answer:** Because the expression `isStudent || isLecturer` uses the logical OR operator, which only requires one operand to be `true` for the whole condition to pass. Even though `isStudent` is `false`, having `isLecturer = true` makes `(false || true)` evaluate to `true`, allowing the lecturer to obtain access as long as `isBlocked` is `false`.
-* **Question 3:** Change `||` to `&&`. Run the program again using test data 1 and 2. What happens, and why?
-  * **Answer:** Both Test Data 1 (student: `true`, lecturer: `false`, blocked: `false`) and Test Data 2 (student: `false`, lecturer: `true`, blocked: `false`) will output `"WiFi access denied"`. This happens because the `&&` operator requires both operands to be `true` simultaneously; since a person is only a student or only a lecturer in those tests, `isStudent && isLecturer` evaluates to `false`, causing the access check to fail.
-* **Question 4:** In the expression `isStudent || isLecturer`, when does `isLecturer` not need to be evaluated? Explain using short-circuit evaluation.
-  * **Answer:** In `isStudent || isLecturer`, the variable `isLecturer` is skipped whenever `isStudent` is `true`. Through short-circuit evaluation, Java knows that an OR (`||`) expression is guaranteed to be true as soon as its first operand is `true`, so it does not waste time evaluating the second operand.
-* **Question 5:** In the expression `(isStudent || isLecturer) && !isBlocked`, when does `!isBlocked` not need to be evaluated? Explain.
-  * **Answer:** The expression `!isBlocked` is skipped whenever `(isStudent || isLecturer)` evaluates to `false` (meaning the user is neither a student nor a lecturer). Due to short-circuit evaluation with the `&&` operator, if the left-hand operand is already `false`, the entire expression can never be `true`, so Java immediately concludes the condition is `false` without checking `!isBlocked`.
 
 ---
 

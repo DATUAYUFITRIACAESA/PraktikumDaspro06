@@ -82,25 +82,61 @@ The following is the program output after execution:
 ```java
 import java.util.Scanner;
 
-public class LogicalOperatorWifi06 {
+public class StudiKasus206 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean isStudent;
-        boolean isLecturer;
-        boolean isBlocked;
+        String name, type, status;
+        int numDocs, rank, statusFunding, shortage;
 
-        System.out.print("Is the user a student? (true/false): ");
-        isStudent = sc.nextBoolean();
-        System.out.print("Is the user a lecturer? (true/false): ");
-        isLecturer = sc.nextBoolean();
-        System.out.print("Is the account currently blocked? (true/false): ");
-        isBlocked = sc.nextBoolean();
+        System.out.print("Student name : ");
+        name = sc.nextLine();
+        System.out.print("Activity type (BELMAWA/BAKORMA/MANDIRI/PKM/OTHER) : ");
+        type = sc.nextLine().trim();
 
-        if ((isStudent || isLecturer) && !isBlocked) {
-            System.out.println("WiFi access granted");
+        if (type.equalsIgnoreCase("BELMAWA") || 
+            type.equalsIgnoreCase("BAKORMA") || 
+            type.equalsIgnoreCase("MANDIRI")) {
+
+            System.out.print("Number of documents : ");
+            numDocs = sc.nextInt();
+            System.out.print("Competition rank : ");
+            rank = sc.nextInt();
+
+            if (rank >= 1 && rank <= 3) {
+                if (numDocs == 4) {
+                    status = "Eligible for award funds.";
+                } else {
+                    shortage = 4 - numDocs;
+                    status = "Documents incomplete (" + shortage + (shortage == 1 ? " document" : " documents") + " missing). No award funds given.";
+                }
+            } else {
+                status = "Not eligible for award funds (only for 1st/2nd/3rd place).";
+            }
+
+        } else if (type.equalsIgnoreCase("PKM")) {
+            System.out.print("Number of documents : ");
+            numDocs = sc.nextInt();
+            System.out.print("PKM funding status (1 = approved, 0 = not approved) : ");
+            statusFunding = sc.nextInt();
+
+            if (statusFunding == 1) {
+                if (numDocs == 4) {
+                    status = "Eligible for award funds (PKM proposal approved for funding).";
+                } else {
+                    shortage = 4 - numDocs;
+                    status = "Documents incomplete (" + shortage + (shortage == 1 ? " document" : " documents") + " missing). No award funds given.";
+                }
+            } else {
+                status = "Not eligible for award funds (PKM proposal not approved).";
+            }
+
+        } else if (type.equalsIgnoreCase("OTHER") || type.equalsIgnoreCase("LAINNYA")) {
+            status = "Not eligible for award funds (activity type not covered by the requirements).";
         } else {
-            System.out.println("WiFi access denied");
+            status = "Invalid activity type.";
         }
+
+        System.out.println("Status : " + status);
     }
 }
 ```
@@ -108,8 +144,5 @@ public class LogicalOperatorWifi06 {
 #### 2.2.2 Execution Results / Output Screenshot
 The following is the program output after execution:
 
-![Experiment 2 Output](coffeShop.png)
-
----
-
+![Experiment 2 Output](activityType.png)
 ---

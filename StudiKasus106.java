@@ -9,9 +9,9 @@ public class StudiKasus106 {
         int totalPrice, discount, totalPayment;
         int change, shortage;
 
-        System.out.print("Masukkan jumlah cup : ");
+        System.out.print("Enter the number of cups: ");
         totalCup = sc.nextInt();
-        System.out.print("Masukkan uang bayar : ");
+        System.out.print("Enter money paid: ");
         moneyPaid = sc.nextInt();
 
         totalPrice = totalCup * pricePerCup;
@@ -23,16 +23,16 @@ public class StudiKasus106 {
 
         totalPayment = totalPrice - discount;
 
-        System.out.println("Total harga         : Rp " + totalPrice);
-        System.out.println("Diskon              : Rp " + discount);
-        System.out.println("Total bayar         : Rp " + totalPayment);
+        System.out.println("Total price         : Rp " + totalPrice);
+        System.out.println("Discount            : Rp " + discount);
+        System.out.println("Total payment       : Rp " + totalPayment);
 
         if (moneyPaid >= totalPayment) {
             change = moneyPaid - totalPayment;
-            System.out.println("Kembalian           : Rp " + change);
+            System.out.println("Change              : Rp " + change);
         } else {
             shortage = totalPayment - moneyPaid;
-            System.out.println("Uang tidak cukup, kurang Rp " + shortage);
+            System.out.println("Money is not enough, shortage Rp " + shortage);
         }
     }
 }

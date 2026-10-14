@@ -4,54 +4,54 @@ public class StudiKasus206 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nama mahasiswa : ");
-        String nama = sc.nextLine();
-        System.out.print("Jenis kegiatan (BELMAWA/BAKORMA/MANDIRI/PKM/LAINNYA) : ");
-        String jenisKegiatan = sc.nextLine().trim();
+        System.out.print("Student name : ");
+        String name = sc.nextLine();
+        System.out.print("Activity type (BELMAWA/BAKORMA/MANDIRI/PKM/OTHER) : ");
+        String type = sc.nextLine().trim();
 
-        if (jenisKegiatan.equalsIgnoreCase("BELMAWA") || 
-            jenisKegiatan.equalsIgnoreCase("BAKORMA") || 
-            jenisKegiatan.equalsIgnoreCase("MANDIRI")) {
-            
-            System.out.print("Jumlah dokumen : ");
-            int jmlDokumen = sc.nextInt();
-            System.out.print("Peringkat juara : ");
-            int peringkat = sc.nextInt();
+        if (type.equalsIgnoreCase("BELMAWA") ||
+                type.equalsIgnoreCase("BAKORMA") ||
+                type.equalsIgnoreCase("MANDIRI")) {
 
-            if (peringkat >= 1 && peringkat <= 3) {
-                if (jmlDokumen == 4) {
-                    System.out.println("Status : Dana penghargaan diberikan.");
+            System.out.print("Number of documents : ");
+            int NumDocs = sc.nextInt();
+            System.out.print("Achievement rank : ");
+            int Rank = sc.nextInt();
+
+            if (Rank >= 1 && Rank <= 3) {
+                if (NumDocs == 4) {
+                    System.out.println("Funding is granted.");
                 } else {
-                    int kurang = 4 - jmlDokumen;
-                    System.out.println("Status : Dokumen tidak lengkap (kurang " + kurang + " dokumen). Dana penghargaan tidak diberikan.");
+                    int shortage = 4 - NumDocs;
+                    System.out.println("Funding is not granted. (less " + shortage
+                            + " documents).");
                 }
             } else {
-                System.out.println("Status : Bukan juara 1, 2, atau 3. Dana penghargaan tidak diberikan.");
+                System.out.println("Not ranked 1, 2, or 3. Funding is not granted.");
             }
 
-        } else if (jenisKegiatan.equalsIgnoreCase("PKM")) {
-            System.out.print("Jumlah dokumen : ");
-            int jmlDokumen = sc.nextInt();
-            System.out.print("Status pendanaan PKM (1 = didanai, 0 = tidak) : ");
-            int statusPendanaan = sc.nextInt();
+        } else if (type.equalsIgnoreCase("PKM")) {
+            System.out.print("Number of documents : ");
+            int NumDocs = sc.nextInt();
+            System.out.print("PKM funding status (1 = funded, 0 = not funded) : ");
+            int statusFunding = sc.nextInt();
 
-            if (statusPendanaan == 1) {
-                if (jmlDokumen == 4) {
-                    System.out.println("Status : Dana penghargaan diberikan.");
+            if (statusFunding == 1) {
+                if (NumDocs == 4) {
+                    System.out.println("Funding is granted.");
                 } else {
-                    int kurang = 4 - jmlDokumen;
-                    System.out.println("Status : Dokumen tidak lengkap (kurang " + kurang + " dokumen). Dana penghargaan tidak diberikan.");
+                    int shortage = 4 - NumDocs;
+                    System.out.println("Funding is not granted. (less " + shortage
+                            + " documents).");
                 }
             } else {
-                System.out.println("Status : Proposal tidak didanai. Dana penghargaan tidak diberikan.");
+                System.out.println("Proposal is not funded. Funding is not granted.");
             }
 
-        } else if (jenisKegiatan.equalsIgnoreCase("LAINNYA")) {
-            System.out.println("Status : Kegiatan di luar ketentuan. Dana penghargaan tidak diberikan.");
+        } else if (type.equalsIgnoreCase("LAINNYA")) {
+            System.out.println("Funding is not granted.");
         } else {
-            System.out.println("Status : Jenis kegiatan tidak valid.");
+            System.out.println("Funding not granted.");
         }
-
-        sc.close();
     }
 }

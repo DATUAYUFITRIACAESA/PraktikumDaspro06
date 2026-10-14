@@ -9,9 +9,9 @@ public class StudiKasus206 {
         System.out.print("Activity type (BELMAWA/BAKORMA/MANDIRI/PKM/OTHER) : ");
         String type = sc.nextLine().trim();
 
-        if (type.equalsIgnoreCase("BELMAWA") || type.equals("1") ||
-                type.equalsIgnoreCase("BAKORMA") || type.equals("2") ||
-                type.equalsIgnoreCase("MANDIRI") || type.equals("3")) {
+        if (type.equalsIgnoreCase("BELMAWA") || 
+                type.equalsIgnoreCase("BAKORMA") ||
+                type.equalsIgnoreCase("MANDIRI") ) {
 
             System.out.print("Number of documents : ");
             int NumDocs = sc.nextInt();
@@ -30,7 +30,7 @@ public class StudiKasus206 {
                 System.out.println("Not ranked 1, 2, or 3. Funding is not granted.");
             }
 
-        } else if (type.equalsIgnoreCase("PKM") || type.equals("4")) {
+        } else if (type.equalsIgnoreCase("PKM") ) {
             System.out.print("Number of documents : ");
             int NumDocs = sc.nextInt();
             System.out.print("PKM funding status (1 = funded, 0 = not funded) : ");
@@ -48,7 +48,7 @@ public class StudiKasus206 {
                 System.out.println("Proposal is not funded. Funding is not granted.");
             }
 
-        } else if (type.equalsIgnoreCase("LAINNYA") || type.equalsIgnoreCase("OTHER") || type.equals("5")) {
+        } else if (type.equalsIgnoreCase("LAINNYA")) {
             System.out.println("Funding is not granted.");
         } else {
             System.out.println("Funding not granted.");

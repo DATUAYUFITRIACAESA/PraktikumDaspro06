@@ -144,5 +144,6 @@ public class StudiKasus206 {
 #### 2.2.2 Execution Results / Output Screenshot
 The following is the program output after execution:
 
-![Experiment 2 Output](activityType.png)
+![Experiment 1 Output](activityType.png)
+
 ---
